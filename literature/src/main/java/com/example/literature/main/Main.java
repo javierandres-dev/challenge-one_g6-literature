@@ -75,21 +75,22 @@ public class Main {
 
     private void searchBookByTitle() {
         System.out.print("Search book by title...Please, enter title: ");
-        //Confessions of a Neurasthenic
-        //confessions%20of%20a%20neurasthenic
-        //jackal
         String inTitle = sc.nextLine();
         var json = consumptionApi.getData(inTitle.replace(" ", "%20"));
         //System.out.println("json: " + json);
         var data = convertData.getData(json, Results.class);
         //System.out.println("data: " + data);
-        BookData bookData = data.results().getFirst();
-        //System.out.println("bookData: " + bookData);
-        Book book = new Book(bookData);
-        //System.out.println("book: " + book);
-        Author author = new Author().getFirstAuthor(bookData);
-        //System.out.println("author: " + author);
-        saveData(book, author);
+        if (data.results().isEmpty()) {
+            System.out.println("Book not found");
+        } else {
+            BookData bookData = data.results().getFirst();
+            //System.out.println("bookData: " + bookData);
+            Book book = new Book(bookData);
+            //System.out.println("book: " + book);
+            Author author = new Author().getFirstAuthor(bookData);
+            //System.out.println("author: " + author);
+            saveData(book, author);
+        }
     }
 
     private void saveData(Book book, Author author) {
