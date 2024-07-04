@@ -1,7 +1,7 @@
 # challenge-one_g6-literature
 ---
 This project is based on "Literalura" challenge proposed by ONE-G6  
-How does it look? Take a look at [View Demo](https://youtu.be/JupZOzY2WaA?si=2pV8x6zj_C15clXH)
+How does it look? Take a look at [View Demo](https://youtu.be/JupZOzY2WaA)
 
 ![badge](./badge-literalura.png)
 
